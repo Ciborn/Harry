@@ -1,0 +1,8 @@
+# Build Artifacts
+dist/
+
+# Dependencies
+node_modules/
+
+# Secrets
+.env

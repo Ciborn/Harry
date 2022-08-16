@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "bufferutil": "^4.0.6",
+    "discord-api-types": "^0.37.2",
+    "discord.js": "^14.2.0",
+    "dotenv": "^16.0.1",
+    "erlpack": "discord/erlpack",
+    "typescript": "^4.7.4",
+    "utf-8-validate": "^5.0.9",
+    "zlib-sync": "^0.1.7"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node --require dotenv/config dist/app.js"
+  }
+}

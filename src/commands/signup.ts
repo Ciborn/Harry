@@ -13,6 +13,8 @@ const choices = [
 	{ name: "Deuxième année, groupe 4", value: "s3-4" },
 ];
 
+const studentRoleName = "- ÉTUDIANT ☆»";
+
 export default class SignupCommand extends Command {
 	constructor() {
 		super("signup", {
@@ -31,13 +33,15 @@ export default class SignupCommand extends Command {
 		const group = interaction.options.get("group").value as string;
 
 		const member = interaction.member as GuildMember;
-		const role = interaction.guild.roles.cache
+		const groupRole = interaction.guild.roles.cache
 			.find(r => r.name.toLowerCase() === group);
-		console.log([group, role]);
+		const studentRole = interaction.guild.roles.cache
+			.find(r => r.name === studentRoleName);
+		console.log([group, studentRoleName, groupRole, studentRole])
 
 		Promise.all([
 			member.setNickname(`${firstname} ${lastname}`),
-			member.roles.add(role)
+			member.roles.add([groupRole, studentRole])
 		]).then(() => {
 			interaction.reply({
 				content: "Vous avez été identifié avec succès !",

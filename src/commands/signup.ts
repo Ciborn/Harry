@@ -15,6 +15,12 @@ const choices = [
 
 const studentRoleName = "- ÉTUDIANT ☆»";
 
+function capitalize(name: string) {
+	return name
+		.toLowerCase()
+		.replace(/[ -]([a-z]){1}|(^[a-z]){1}/g, m => m.toUpperCase());
+}
+
 export default class SignupCommand extends Command {
 	constructor() {
 		super("signup", {
@@ -37,10 +43,9 @@ export default class SignupCommand extends Command {
 			.find(r => r.name.toLowerCase() === group);
 		const studentRole = interaction.guild.roles.cache
 			.find(r => r.name === studentRoleName);
-		console.log([group, studentRoleName, groupRole, studentRole])
 
 		Promise.all([
-			member.setNickname(`${firstname} ${lastname}`),
+			member.setNickname(capitalize(`${firstname} ${lastname}`)),
 			member.roles.add([groupRole, studentRole])
 		]).then(() => {
 			interaction.reply({

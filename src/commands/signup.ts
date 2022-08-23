@@ -1,19 +1,20 @@
 import { CommandInteraction, GuildMember } from "discord.js";
 import Command from "../structures/Command";
 
-const choices = [
-	{ name: "Première année, groupe 1", value: "s1-1" },
-	{ name: "Première année, groupe 2", value: "s1-2" },
-	{ name: "Première année, groupe 3", value: "s1-3" },
-	{ name: "Première année, groupe 4", value: "s1-4" },
-	{ name: "Première année, groupe 5", value: "s1-5" },
-	{ name: "Deuxième année, groupe 1", value: "s3-1" },
-	{ name: "Deuxième année, groupe 2", value: "s3-2" },
-	{ name: "Deuxième année, groupe 3", value: "s3-3" },
-	{ name: "Deuxième année, groupe 4", value: "s3-4" },
+const groups = [
+	{ name: "Première année, groupe 1", value: "s1-1", role: "TD1 (S1&2)" },
+	{ name: "Première année, groupe 2", value: "s1-2", role: "TD2 (S1&2)" },
+	{ name: "Première année, groupe 3", value: "s1-3", role: "TD3 (S1&2)" },
+	{ name: "Première année, groupe 4", value: "s1-4", role: "TD4 (S1&2)" },
+	{ name: "Première année, groupe 5", value: "s1-5", role: "TD5 (S1&2)" },
+	{ name: "Deuxième année, groupe 1", value: "s3-1", role: "TD1 (S3&4)" },
+	{ name: "Deuxième année, groupe 2", value: "s3-2", role: "TD2 (S3&4)" },
+	{ name: "Deuxième année, groupe 3", value: "s3-3", role: "TD3 (S3&4)" },
+	{ name: "Deuxième année, groupe 4", value: "s3-4", role: "TD4 (S3&4)" },
 ];
+const choices = groups.map(({ name, value }) => ({ name, value }));
 
-const studentRoleName = "- ÉTUDIANT ☆»";
+const studentRoleName = "- ÉTUDIANT »";
 
 function capitalize(name: string) {
 	return name
@@ -39,8 +40,9 @@ export default class SignupCommand extends Command {
 		const group = interaction.options.get("group").value as string;
 
 		const member = interaction.member as GuildMember;
+		const groupRoleName = groups.find(g => g.value === group).role;
 		const groupRole = interaction.guild.roles.cache
-			.find(r => r.name.toLowerCase() === group);
+			.find(r => r.name === groupRoleName);
 		const studentRole = interaction.guild.roles.cache
 			.find(r => r.name === studentRoleName);
 

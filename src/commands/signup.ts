@@ -11,6 +11,7 @@ const groups = [
 	{ name: "Deuxième année, groupe 2", value: "s3-2", role: "TD2 (S3&4)" },
 	{ name: "Deuxième année, groupe 3", value: "s3-3", role: "TD3 (S3&4)" },
 	{ name: "Deuxième année, groupe 4", value: "s3-4", role: "TD4 (S3&4)" },
+	{ name: "Alumni", value: "alumni", role: "Vieux" },
 ];
 const choices = groups.map(({ name, value }) => ({ name, value }));
 

@@ -1,6 +1,6 @@
 import { BaseGuildTextChannel, CommandInteraction, GuildMember } from "discord.js";
 import { Rcon } from "rcon-client";
-import Command from "../structures/Command";
+import Command from "../structures/Command.js";
 
 const host = process.env.MC_SERVER_RCON_HOST;
 const port = Number(process.env.MC_SERVER_RCON_PORT);

@@ -1,5 +1,5 @@
 import { BaseInteraction } from "discord.js";
-import CommandHandler from "../handlers/CommandHandler";
+import CommandHandler from "../handlers/CommandHandler.js";
 
 export default function interactionCreate(
 	handler: CommandHandler,

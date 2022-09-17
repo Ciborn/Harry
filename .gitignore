@@ -1,6 +1,9 @@
 # Build Artifacts
 dist/
 
+# Runtime Artifacts
+cache/
+
 # Dependencies
 node_modules/
 

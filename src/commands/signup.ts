@@ -1,5 +1,5 @@
 import { CommandInteraction, GuildMember } from "discord.js";
-import Command from "../structures/Command";
+import Command from "../structures/Command.js";
 
 const groups = [
 	{ name: "Première année, groupe 1", value: "s1-1", role: "TD1 (S1&2)" },

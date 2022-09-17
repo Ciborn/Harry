@@ -1,5 +1,5 @@
 import { CommandInteraction } from "discord.js";
-import Command from "../structures/Command";
+import Command from "../structures/Command.js";
 
 export default class CommandHandler {
 	public commands: Map<string, Command> = new Map();

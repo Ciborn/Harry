@@ -1,7 +1,7 @@
-import { CommandInteraction, SlashCommandBuilder, SlashCommandStringOption as Option } from "discord.js";
-import { Arg, CommandMetadata } from "../utils/Constants";
+import { CommandInteraction, SlashCommandBuilder, ApplicationCommandOptionBase as Option } from "discord.js";
+import { Arg, CommandMetadata } from "../utils/Constants.js";
 
-function patchOption(option: Option, name: string, metadata: Arg) {
+function patchOption<T extends Option>(option: T, name: string, metadata: Arg) {
 	try {
 		return option.setName(name.toLowerCase())
 			.setDescription(metadata.desc)

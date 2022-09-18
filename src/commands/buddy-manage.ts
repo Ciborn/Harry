@@ -1,6 +1,5 @@
 import { AttachmentBuilder, CommandInteraction } from "discord.js";
 import { readFile, writeFile } from "fs/promises";
-import arrayShuffle from "array-shuffle";
 import { stringify } from "csv-stringify/sync";
 import { parse } from "csv-parse/sync";
 import Command from "../structures/Command.js";
@@ -12,8 +11,8 @@ function exportCsv(couples: string[][], interaction: CommandInteraction) {
 	const userCouples = [];
 
 	for (const [s1Id, s3Id] of couples) {
-		const s1 = users.get(s1Id).displayName;
-		const s3 = users.get(s3Id).displayName;
+		const s1 = users.get(s1Id)?.displayName || "";
+		const s3 = users.get(s3Id)?.displayName || "";
 		userCouples.push([s1, s3]);
 	}
 
@@ -36,25 +35,7 @@ export default class BuddyManageCommand extends Command {
 			const csv: string[][] = parse(file, { delimiter: ";" });
 			return exportCsv(csv, interaction);
 		}).catch(async () => {
-			const s1Members = interaction.guild.members.cache
-				.filter(m => m.roles.cache.some(r => r.name.includes("S1&2")));
-			const s3Members = interaction.guild.members.cache
-				.filter(m => m.roles.cache.some(r => r.name.includes("S3&4")));
-
-			const s1 = arrayShuffle(Array.from(s1Members.keys()));
-			const s3 = arrayShuffle(Array.from(s3Members.keys()));
-			const couples = [];
-
-			for (let i = 0; i < Math.min(s1.length, s3.length); i++) {
-				couples.push([s1[i], s3[i]]);
-			}
-
-			if (s1.length > s3.length) {
-				for (let i = s3.length; i < s1.length; i++) {
-					couples.push([s1[i], s3[i]]);
-				}
-			}
-
+			const couples = [["", ""]]
 			const csv = stringify(couples, { delimiter: ";" })
 			await writeFile("./cache/buddy.csv", csv);
 

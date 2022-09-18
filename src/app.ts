@@ -3,6 +3,7 @@ import { Routes } from "discord-api-types/v10";
 import { Client } from "discord.js";
 import BuddyManageCommand from "./commands/buddy-manage.js";
 import BuddyOptoutCommand from "./commands/buddy-optout.js";
+import BuddySignupCommand from "./commands/buddy-signup.js";
 import McwhitelistCommand from "./commands/mcwhitelist.js";
 import SignupCommand from "./commands/signup.js";
 import interactionCreate from "./events/interactionCreate.js";
@@ -16,7 +17,8 @@ commands.register(
 	SignupCommand,
 	McwhitelistCommand,
 	BuddyManageCommand,
-	BuddyOptoutCommand
+	BuddyOptoutCommand,
+	BuddySignupCommand
 );
 
 if (process.env.DEPLOY_SLASH) {

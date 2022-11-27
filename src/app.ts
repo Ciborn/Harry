@@ -1,6 +1,7 @@
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v10";
 import { Client } from "discord.js";
+import AdventReward from "./commands/advent-reward.js";
 import BuddyManageCommand from "./commands/buddy-manage.js";
 import BuddyOptoutCommand from "./commands/buddy-optout.js";
 import BuddySignupCommand from "./commands/buddy-signup.js";
@@ -18,7 +19,8 @@ commands.register(
 	McwhitelistCommand,
 	BuddyManageCommand,
 	BuddyOptoutCommand,
-	BuddySignupCommand
+	BuddySignupCommand,
+	AdventReward,
 );
 
 if (process.env.DEPLOY_SLASH) {
@@ -39,8 +41,9 @@ client.login(process.env.token).then(() => {
 	
 	Promise.all([
 		client.application.commands.fetch(),
+		client.guilds.cache.get(process.env.MAIN_SERVER_ID).channels.fetch(),
+		client.guilds.cache.get(process.env.MAIN_SERVER_ID).members.fetch(),
 		client.guilds.cache.get(process.env.MAIN_SERVER_ID).roles.fetch(),
-		client.guilds.cache.get(process.env.MAIN_SERVER_ID).members.fetch()
 	]).then(() => {
 		client.on("interactionCreate", interaction => {
 			interactionCreate(commands, interaction);

@@ -34,6 +34,8 @@ export default abstract class Command {
 						.setChoices(...meta.choices));
 				} else if (meta.as === "string") {
 					slash.addStringOption(o => patchOption(o, name, meta));
+				} else if (meta.as === "attachment") {
+					slash.addAttachmentOption(o => patchOption(o, name, meta))
 				}
 			}
 		}

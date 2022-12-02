@@ -139,7 +139,6 @@ export default class AdventReward extends Command {
 			content: `Le message suivant sera envoyé à 8h :\n\n${interaction.user}`,
 			components: [looksButtons],
 			embeds: [embed],
-			ephemeral: true,
 		}).then(message => {
 			message
 				.awaitMessageComponent({ filter: i => i.user.equals(interaction.user) })

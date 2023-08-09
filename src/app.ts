@@ -9,6 +9,7 @@ import McwhitelistCommand from "./commands/mcwhitelist.js";
 import SignupCommand from "./commands/signup.js";
 import interactionCreate from "./events/interactionCreate.js";
 import CommandHandler from "./handlers/CommandHandler.js";
+import SwitchclassCommand from "./commands/switch-class.js";
 
 const clientId = process.env.DISCORD_CLIENT_ID;
 const token = process.env.DISCORD_TOKEN;
@@ -21,6 +22,7 @@ commands.register(
 	BuddyOptoutCommand,
 	BuddySignupCommand,
 	AdventReward,
+	SwitchclassCommand,
 );
 
 if (process.env.DEPLOY_SLASH) {

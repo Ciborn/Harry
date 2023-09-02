@@ -1,0 +1,77 @@
+token: XXXXXXXX
+
+current_year: 2023
+
+role_student: &role_student 970004649044242526
+role_alumni: &role_alumni 1000881342420103198
+role_vieux: &role_guest 1015650748845019156
+role_teacher: &role_teacher 1027620276080492605
+
+groups:
+  - id: s1-td1
+    name: S1/S2 - TD1
+    roles:
+      - *role_student
+      - 1132599322505117716
+  - id: s1-td2
+    name: S1/S2 - TD2
+    roles:
+      - *role_student
+      - 1132599408542883911
+  - id: s1-td3
+    name: S1/S2 - TD3
+    roles:
+      - *role_student
+      - 1132599515531190302
+  - id: s1-td4
+    name: S1/S2 - TD4
+    roles:
+      - *role_student
+      - 1132599566001258536
+  - id: s3-td1
+    name: S3/S4 - TD1 (Data)
+    roles:
+      - *role_student
+      - 1132599835669839923
+  - id: s3-td2
+    name: S3/S4 - TD2 (Dév. C++)
+    roles:
+      - *role_student
+      - 1132600095410495552
+  - id: s3-td3
+    name: S3/S4 - TD3 (Dév. C++)
+    roles:
+      - *role_student
+      - 1132600214063173753
+  - id: s3-td4
+    name: S3/S4 - TD4 (Dév. C#)
+    roles:
+      - *role_student
+      - 1132600273685188608
+  - id: s5-td1
+    name: S5/S6 - TD1 (Data)
+    roles:
+      - *role_student
+      - 1132601581322391674
+  - id: s5-td2
+    name: S5/S6 - TD2 (Dév.)
+    roles:
+      - *role_student
+      - 1132601802689355827
+  - id: s5-td3
+    name: S5/S6 - TD3 (Dév.)
+    roles:
+      - *role_student
+      - 1132601861858414662
+  - id: alumni
+    name: Alumni
+    roles:
+      - *role_alumni
+  - id: guest
+    name: Invité
+    roles:
+      - *role_guest
+  - id: teacher
+    name: Professeur
+    roles:
+      - *role_teacher

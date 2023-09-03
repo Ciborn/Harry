@@ -39,7 +39,7 @@ groups:
       - *role_student
       - 1132600095410495552
   - id: s3-td3
-    name: S3/S4 - TD3 (Dév. C++)
+    name: S3/S4 - TD3 (Dév. C#)
     roles:
       - *role_student
       - 1132600214063173753

@@ -4,4 +4,4 @@ services:
       context: .
       target: production
     volumes:
-      - ./config.yaml:/app/config.yaml
+      - ./config.yml:/app/config.yaml

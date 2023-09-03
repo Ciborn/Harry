@@ -1,0 +1,7 @@
+services:
+  harry:
+    build:
+      context: .
+      target: production
+    volumes:
+      - ./config.yml:/app/config.yaml

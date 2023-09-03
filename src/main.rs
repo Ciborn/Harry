@@ -40,6 +40,7 @@ async fn main() {
             commands: vec![
                 commands::signup::inscription(),
                 commands::switch_class::changer_classe(),
+                commands::students::etudients(),
             ],
             ..Default::default()
         })

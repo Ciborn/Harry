@@ -6,7 +6,7 @@ use crate::{config::Group, Context, Error};
 
 /// Lister les membres d'une classe ou catégorie
 #[poise::command(slash_command)]
-pub async fn etudients(
+pub async fn etudiants(
     ctx: Context<'_>,
     #[description = "Classe (ou catégorie)"] groupe: Group,
 ) -> Result<(), Error> {

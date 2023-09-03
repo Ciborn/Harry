@@ -28,7 +28,11 @@ pub async fn inscription(
 
     member
         .edit(ctx.http(), |edit| {
-            edit.nickname(format!("{} {}", prenom, nom))
+            edit.nickname(format!(
+                "{} {}",
+                capitalize_first_letter(prenom.as_str()),
+                capitalize_first_letter(nom.as_str())
+            ))
         })
         .await?
         .add_roles(ctx.http(), groupe.to_roleids().as_slice())
@@ -42,4 +46,8 @@ pub async fn inscription(
     .await?;
 
     Ok(())
+}
+
+fn capitalize_first_letter(s: &str) -> String {
+    s[0..1].to_uppercase() + &s[1..]
 }

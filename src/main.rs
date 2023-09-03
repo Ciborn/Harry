@@ -54,7 +54,7 @@ async fn main() {
                 Ok(())
             })
         })
-        .intents(serenity::GatewayIntents::privileged() | serenity::GatewayIntents::GUILDS)
+        .intents(serenity::GatewayIntents::GUILDS | serenity::GatewayIntents::GUILD_MEMBERS | serenity::GatewayIntents::GUILD_PRESENCES)
         .run()
         .await
         .unwrap();
